@@ -30,6 +30,7 @@ function checkType(roomOrChest) {
 }
 function findTreasureSync(roomPath) {
   let filsArray = fs.readdirSync(roomPath);
+ // console.log(filsArray);
   for (let i = 0; i < filsArray.length; i++) {
     const currentPath = `${roomPath}/${filsArray[i]}`;
     drawMapSync(currentPath);
@@ -43,7 +44,6 @@ function findTreasureSync(roomPath) {
         findTreasureSync(checkClue(currentPath));
   }
 }
-
 findTreasureSync("./maze");
 
 function drawMapSync(currentRoomPath) {
